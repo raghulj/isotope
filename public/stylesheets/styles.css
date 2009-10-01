@@ -1,0 +1,233 @@
+html,body{margin:0;padding:0; height:100%;}
+body{font: 76% arial,sans-serif;text-align:center;}
+p{margin:0 10px 10px}
+a{padding:5px; text-decoration:none; color:#000000;}
+div#header{background-color:#F9F9F9;}
+div#header h1{height:40px;line-height:30px;margin:0;padding-left:10px;}
+div#container{text-align:left;background:#DCDAD9;}
+div#content p{line-height:1.4}
+div#navigation{background:#F7F7FF;}
+div#navigation ul{margin:15px 0; padding:0; list-style-type:none;}
+div#navigation li{margin-bottom:5px;}
+div#extra{background:#a7a7a7;}
+
+div#footer{
+    background:#94918f;
+    position:absolute;
+    bottom:0;
+    border-top:2px;
+}
+div#footer p{margin:0;padding:5px 10px}
+div#container{
+    width:100%;
+    margin:0 auto;
+    height:auto;
+    min-height:100%;
+    position:relative;
+}
+div#wrapper {
+  padding-right: 20px;
+  padding-bottom: 50px;
+  height:auto;
+}
+div#content {
+    float:right;
+    width:85%;
+    padding-bottom: 2%;
+    border-right:1px solid #a7a7a7; 
+    border-left: 1px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+    border-top: 1px solid #a7a7a7;
+    background: #fff;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    min-height:100%;
+    position:relative;
+}
+
+div#navigation {
+    float:left;
+    width:13%;
+    height:100%;
+    margin: 2px 0px 0px 5px;
+    border: 1px solid #a7a7a7;
+    text-align: center;
+    padding: 0px;
+}
+#navigation a:hover {
+  font-color: #a7a7a7;
+  background: #a7a7a7;
+    
+}
+#navigation li{
+  padding: 4px;
+}
+div#extra{float:left;clear:left;width:100%}
+div#footer{clear:both;width:100%}
+div#spacer{
+    clear:both;
+    height:5px;
+}
+
+/************************************* Tabs in pages ****************************/
+#tabs {
+    position :relative;
+    line-height: 1.5em;
+    padding: 0 0 0.75em 20%;
+}
+#tabs ul{
+    background: transparent none repeat;
+    float: left;
+    margin: 2px 0px 0px;
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+
+}
+#tabs li {
+    float: left;
+    display: block;
+    margin: 0px 3px 0px 0px ;
+}
+#tabs A {
+    color:#000;
+    background:#A7ACC0;
+    margin: 0;
+   // padding: 1px 2px;
+    border-left:1px solid #a7a7a7;
+    border-top:1px solid #a7a7a7;
+    border-right:1px solid #a7a7a7;
+}
+#tabs A:hover,
+#tabs A:active,
+#tabs A.selected:link,
+#tabs A.selected:visited {
+    background:#fff;
+}
+
+#tabs A.selected:link,
+#tabs A.selected:visited {
+    position:relative;
+    z-index: 2;
+}
+#tabs UL A.selected:link,
+#tabs UL A.selected:visited {
+    background:#fff;
+}
+/************************************ dialog display ****************************/
+table#project {
+    background: #C2C8E3;
+    border: 1px solid #a7a7a7;
+    margin: 5px 0px 8px 50px;
+    padding: 1em;
+}
+table#project thead{
+  background: transparent(/images/thead.gif) repeat-x scroll left bottom;
+}
+
+th#title {
+   // background: #6076D1;
+    padding: 2px;
+   // text-align: center;
+   font-size: 14px;
+
+}
+tr#highlight {
+  padding: 3px;
+}
+
+tr#spacer {
+    padding: 20px;
+}
+table.tickets {
+  border-collapse: collapse;
+}
+
+table.tickets thead th {
+  background: transparent url(../images/thead.gif) repeat-x scroll left bottom;
+  font-color: #4D4648;
+  text-align: center;
+  padding: 0.7em;
+  font-color: #4D4648;
+  border-right: 1px solid #DCDCDC ;
+}
+table.tickets th {padding-top: 0.6em; padding-bottom: 0.54em;font-weight:bold; }
+table.tickets {
+  border: 1px solid #DCDCDC !important;
+}
+table.tickets td {
+  border: 1px solid #DCDCDC !important;
+  height: 2.5em;
+  padding: 0.6em;
+}
+table.tickets tr{
+  border:1px solid #DCDCDC;
+  cursor: pointer;
+}
+table.tickets tr:hover td,
+table.tickets tr.hover td {
+  background-color: #F9F9F9;
+}
+/*************** Text box and inputs *************/
+input.title {
+  border: 1px solid #AAAAAA;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 2px;
+  width: 600px;
+  margin: 2px 2px 4px 2px;
+}
+
+textarea.body {
+  margin: 2px 2px 4px 2px;
+  border: 1px solid #AAAAAA;
+  font-size: 14px;
+  padding: 3px;
+  width:600px;
+}
+/*****************  div dialog ***************/
+div#new_todo {
+  border: 1px solid #94918F;
+  padding: 10px;
+  margin:15px 40px 5px 10px;
+  background:#DCDAD9;
+  }
+div#new_message {
+  border: 1px solid #94918F;
+  padding: 10px;
+  padding-bottom: 30px;
+  margin:0px 20px 5px 10px;
+  background:#DCDAD9;
+  }
+div.shadow  {
+     float:left; 
+      background: url(/images/dropshadow.gif) no-repeat bottom right; 
+       margin: 10px 10px 10px 10px;
+ }
+div#action {
+  float:right;
+}
+/**************** table block *******************/
+table#tickets {
+  border-collapse: collapse;
+  border: 1px solid #94918F;
+  width:95%;
+  margin: 5px;
+}
+tr#tickets {
+  background:#C4C4C4;
+  padding:3px;
+  border: 1px solid #aaaaaa;
+  font-size: 13px;
+  text-align: center;
+}
+th#tickets{
+  background:#ffffff;
+}
+td.tickets {
+  border: 1px solid #C4C4C4;
+  margin:0px;
+}
+tr#tickets a.hover{
+  background-color: red;
+}

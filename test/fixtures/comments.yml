@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  context: MyText
+  commentable_id: 1
+  commentable_type: MyString
+
+two:
+  context: MyText
+  commentable_id: 1
+  commentable_type: MyString

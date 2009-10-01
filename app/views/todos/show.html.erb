@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @todo.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @todo.body %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @todo.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_todo_path(@todo) %> |
+<%= link_to 'Back', project_todos_path %>

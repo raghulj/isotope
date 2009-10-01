@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  short_summary: MyString
+  description: MyText
+  due_date: 2009-09-22
+  priority: MyText
+  severity: MyText
+  hours: 
+
+two:
+  short_summary: MyString
+  description: MyText
+  due_date: 2009-09-22
+  priority: MyText
+  severity: MyText
+  hours: 

@@ -1,0 +1,41 @@
+
+<ul id="tabs" >
+    <% dashboard_class = message_class = repository_class = todos = tickets_class = "" %>
+    <% if selected == "overview" %>
+        <% dashboard_class = "class='selected'" %>
+    <% elsif selected == "message" %>
+        <% message_class = "class='selected'"%>
+    <% elsif selected == "repository" %>
+        <% repository_class = "class='selected'" %>
+    <% elsif selected == "tickets" %>
+        <% tickets_class = "class='selected'" %>
+    <% elsif selected == "settings" %>
+        <% settings = "class='selected'" %>
+    <% else %>
+        <% todos = "class='selected'" %>
+    <% end %>
+    
+    <li id="overview" >
+    <a href="/projects/<%= project_id %>" <%=dashboard_class%> >Overview </a>
+    </li>
+
+    <li id="messages">
+    <a href="/projects/<%= project_id %>/messages" <%= message_class %> >Messages </a>
+    </li>
+
+    <li id="repositories">
+    <a href="/projects/<%= project_id %>/repositories" <%= repository_class %>> Repositories </a>
+    </li>
+
+    <li id="tickets">
+    <a href="/projects/<%= project_id%>/tickets" <%=tickets_class %>>Tickets </a>
+    </li>
+
+    <li id="todo">
+    <a href="/projects/<%= project_id %>/todos" <%=todos %>>Todos </a>
+    </li>
+    
+    <li id="settings">
+    <a href="/projects/settings/<%= project_id %>" <%=settings %>>Settings </a>
+    </li>
+</ul>

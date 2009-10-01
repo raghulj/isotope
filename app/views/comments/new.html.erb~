@@ -1,0 +1,16 @@
+<h1>New comment</h1>
+
+
+<% form_for([@commentable, Comment.new], :url => project_message_comments) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :context %><br />
+    <%= f.text_area :context %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', comments_path %>

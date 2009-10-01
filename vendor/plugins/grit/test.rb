@@ -1,0 +1,17 @@
+require 'lib/grit'
+include Grit
+
+@repos = Repo.init('/home/raghul/tmp.git')
+puts @repos
+
+#@repos = Repo.new('/home/raghul/Work/mForms').tree
+
+n = @repos.contents[4]
+puts n.name
+
+
+
+puts n.last_committed_author
+puts n.last_committed_message
+puts n.last_committed_date
+puts n.tree.contents

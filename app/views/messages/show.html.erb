@@ -1,0 +1,14 @@
+<p>
+  <b>Title:</b>
+  <%=h @message.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @message.body %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_project_message_path(@project,@message) %> |
+<%= link_to 'Back', project_messages_path %>

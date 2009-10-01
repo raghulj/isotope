@@ -1,0 +1,26 @@
+
+
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Type</th>
+  </tr>
+
+<% @todos.each do |todo| %>
+  <tr>
+    <td><%=h todo.title %></td>
+    <td><%=h todo.body %></td>
+    <td><%=h todo.type %></td>
+    <td><%= link_to 'Show', project_todo_path(@project,todo) %></td>
+    <td><%= link_to 'Edit', edit_project_todo_path(@project,todo) %></td>
+    <td><%= link_to 'Destroy', project_todo_path(@project,todo), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New todo', new_project_todo_path %>

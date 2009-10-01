@@ -1,0 +1,18 @@
+<%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "settings" , :project_id => @project.id} %>
+
+<div id="content">
+
+    <div class="wrap" style="padding-left:10px;" >
+        Users in projects <br>
+        <% for pipl in @people %>
+            <%=h pipl.user.login %> <br>
+        <% end %><br>
+        Add people to the project
+        <select name="se" >
+            <% for id in @users %>
+                <% user = User.find(id) %>
+                <option value=<%= user.id %>> <%= user.login %></option>
+            <% end %>
+    </select>
+    </div>
+</div>

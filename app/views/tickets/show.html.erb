@@ -1,0 +1,33 @@
+<p>
+  <b>Short summary:</b>
+  <%=h @ticket.short_summary %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @ticket.description %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%=h @ticket.due_date %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%=h @ticket.priority %>
+</p>
+
+<p>
+  <b>Severity:</b>
+  <%=h @ticket.severity %>
+</p>
+
+<p>
+  <b>Hours:</b>
+  <%=h @ticket.hours %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_ticket_path(@project,@ticket) %> |
+<%= link_to 'Back', project_tickets_path %>

@@ -1,0 +1,14 @@
+
+<table>
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%=h comment.context %></td>
+    <td><%=h comment.created_at %></td>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

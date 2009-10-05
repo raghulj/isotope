@@ -9,12 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091001114912) do
+ActiveRecord::Schema.define(:version => 20091003060542) do
 
   create_table "comments", :force => true do |t|
     t.text     "context"
     t.integer  "commentable_id"
     t.string   "commentable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keys", :force => true do |t|
+    t.string   "title"
+    t.text     "value"
+    t.string   "git_name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +56,19 @@ ActiveRecord::Schema.define(:version => 20091001114912) do
     t.string   "path"
     t.text     "description"
     t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "role_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

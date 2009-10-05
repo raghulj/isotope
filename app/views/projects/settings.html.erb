@@ -5,14 +5,17 @@
     <div class="wrap" style="padding-left:10px;" >
         Users in projects <br>
         <% for pipl in @people %>
-            <%=h pipl.user.login %> <br>
+            <%=h pipl.user.login %><a href="/projects/delete_user/<%= pipl.id %>">delete </a> <br>
         <% end %><br>
-        Add people to the project
-        <select name="se" >
+     <% form_tag "/projects/add_user" do  %>
+         <%= hidden_field_tag "project_id" , @project.id %>
+         Add 
+        <select name="user_id" >
             <% for id in @users %>
                 <% user = User.find(id) %>
                 <option value=<%= user.id %>> <%= user.login %></option>
             <% end %>
-    </select>
+        </select> to the project <%= submit_tag "add" %>
+    <% end %>
     </div>
 </div>

@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   # GET /projects
   before_filter :require_user 
+  before_filter :has_rights_to_admin, :only => [:new, :create,:update, :settings]
   # GET /projects.xml
   def index
     @projects = Project.all
@@ -77,6 +78,21 @@ class ProjectsController < ApplicationController
       @users = User.all.collect {|u| u.id} -  @project.memberships.collect {|h| h.user_id }
       @people = @project.memberships.select { |u| u.user_id }
   end
+
+  def add_user
+      if Project.find(params[:project_id]).memberships.create!(:user_id => params[:user_id])
+                     redirect_to "/projects/settings/#{params[:project_id]}" 
+      end
+  end
+  
+  def delete_user
+      m = Membership.find(params[:id])
+      proj_id = m.project_id
+      if m.delete
+          redirect_to "/projects/settings/#{proj_id}"
+      end
+  end
+   
   # DELETE /projects/1
   # DELETE /projects/1.xml
   def destroy

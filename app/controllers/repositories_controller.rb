@@ -1,5 +1,8 @@
+require 'repoinit'
 class RepositoriesController < ApplicationController
-  before_filter :get_project
+    include Repoinit
+    before_filter :get_project
+  
     # GET /repositories
   # GET /repositories.xml
   def index
@@ -41,13 +44,15 @@ class RepositoriesController < ApplicationController
   # POST /repositories
   # POST /repositories.xml
   def create
-    @repository = Repository.new(params[:repository])
+    @repository = @project.repositories.new(params[:repository])
     @repository.path = '/home/raghul/tmp'
-    @repository.repo_name = @repository.name
+    @repository.repo_name = @repository.name.downcase.gsub(" ","_")
     respond_to do |format|
       if @repository.save
+        @repository.add_changes_to_conf
+        
         flash[:notice] = 'Repository was successfully created.'
-        format.html { redirect_to(@repository) }
+        format.html { redirect_to([@project,@repository]) }
         format.xml  { render :xml => @repository, :status => :created, :location => @repository }
       else
         format.html { render :action => "new" }
@@ -76,7 +81,8 @@ class RepositoriesController < ApplicationController
   # DELETE /repositories/1
   # DELETE /repositories/1.xml
   def destroy
-    @repository = Repository.find(params[:id])
+    @repository = @project.repositories.find(params[:id])
+        @repository.add_changes_to_conf
     @repository.destroy
 
     respond_to do |format|

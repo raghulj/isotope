@@ -1,0 +1,24 @@
+<h1>Listing keys</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Value</th>
+    <th>Git name</th>
+  </tr>
+
+<% @keys.each do |key| %>
+  <tr>
+    <td><%=h key.title %></td>
+    <td><%=h key.value %></td>
+    <td><%=h key.git_name %></td>
+    <td><%= link_to 'Show', key %></td>
+    <td><%= link_to 'Edit', edit_key_path(key) %></td>
+    <td><%= link_to 'Destroy', key, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New key', new_key_path %>

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :keys
+
   map.resources :repositories
 
   map.resources :comments
@@ -8,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :todos
 
 
-  map.resources :projects, :collection => {:settings => :get }
+  map.resources :projects, :collection => {:settings => :get, :add_user => :post, :delete_user => :post }
  
   map.resource :login, :controller => "user_session"
   map.resource :user_session

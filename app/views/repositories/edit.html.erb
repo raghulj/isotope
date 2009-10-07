@@ -1,6 +1,6 @@
 <h1>Editing repository</h1>
 
-<% form_for(@repository) do |f| %>
+<% form_for([@project,@repository]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -24,5 +24,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @repository %> |
-<%= link_to 'Back', repositories_path %>
+<%= link_to 'Show', project_repository_path(@project,@repository) %> |
+<%= link_to 'Back', project_repositories_path %>

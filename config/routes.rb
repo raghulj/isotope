@@ -8,7 +8,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tickets
 
   map.resources :todos
-
+  
+  map.resources :source, :collection => {:get_repos => :post, :index => :post, :tree_items => :post, :view_file => :post }
 
   map.resources :projects, :collection => {:settings => :get, :add_user => :post, :delete_user => :post }
  

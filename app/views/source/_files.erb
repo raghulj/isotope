@@ -1,0 +1,21 @@
+
+<table >
+    <% for r in @repos.contents %>
+
+        <tr id=<%= r.id %>>
+            <% if r.kind_of? Grit::Blob %>
+                <%= "<td><img src='/images/page_white_text.png'></td>" %>
+                <%= "<td><a href='/source/view_file/#{r.id}'>#{r.name}</a></td>" %>
+            <% else %>
+                <%= "<td><img src='/images/folder.png'></td>" %>
+                <% unless @ap_string %>
+                   <%    @ap_string = "" %>
+               <% end %>
+                <%= "<td>#{link_to r.name, :action =>:tree_items, :id=>  @ap_string +r.name.to_s}</td>" %>
+            <% end %>
+                <%= "<td>#{r.last_committed_date }</td>" %>
+                <%= "<td>#{r.last_committed_author}</td>" %>
+                <%= "<td>#{r.last_committed_message} </td>" %>
+        </tr>
+    <% end %>
+</table>

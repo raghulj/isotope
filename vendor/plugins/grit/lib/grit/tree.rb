@@ -54,6 +54,12 @@ module Grit
       atts.each do |k, v|
         instance_variable_set("@#{k}", v)
       end
+       
+      @tree_data = @repo.git.run('','log',self.id ,{:max_count => 1},'').to_str
+      @last_committed_message = @tree_data.split("\n").last.strip
+      @last_committed_date = @tree_data.split("\n")[2].split('Date:').last.strip
+      @last_committed_author = @tree_data.split("\n")[1].split('Author:').last.strip
+      
       self
     end
 
@@ -113,19 +119,18 @@ module Grit
     def blobs
       contents.select {|v| v.kind_of? Blob}
     end
-
+    
     def last_committed_message
-      @repo.git.run('','log',' -- '+self.name,{:max_count => 1},'').to_str.split("\n").last.strip
+      @last_committed_message
     end
 
     def last_committed_date
-      @repo.git.run('','log',' -- '+self.name,{:max_count => 1},'').to_str.split("\n")[2].split('Date:').last.strip
+        @last_committed_date
     end
 
     def last_committed_author
-      @repo.git.run('','log',' -- '+self.name,{:max_count => 1},'').to_str.split("\n")[1].split('Author:').last.strip
+        @last_committed_author
     end
-
 
     # Compares trees by name
     def <=>(other)

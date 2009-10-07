@@ -1,15 +1,1 @@
-<table >
-    <% for r in @repos.contents %>
-        <tr id=<%= r.id %>>
-            <% if r.kind_of? Grit::Blob %>
-                <%= "<td><img src='/images/page_white_text.png'></td>" %>
-            <% else %>
-                <%= "<td><img src='/images/folder.png'></td>" %>
-            <% end %>
-            <%= "<td><a href='/source/tree/#{r.id}'>#{r.name}</a></td>" %>
-            <%= "<td>#{truncate(r.last_committed_date,12)}</td>" %>
-            <%= "<td>#{truncate(r.last_committed_message,20)} [ #{r.last_committed_author}  ]</td>" %>
-        </tr>
-    <% end %>
-</table>
-
+<%= render :partial => "files" %>

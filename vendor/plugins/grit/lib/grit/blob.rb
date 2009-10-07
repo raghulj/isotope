@@ -26,6 +26,10 @@ module Grit
       atts.each do |k, v|
         instance_variable_set("@#{k}".to_sym, v)
       end
+      @blob_data  = @repo.git.run('','log',self.id,{:max_count => 1},'').to_str
+      @last_committed_message = @blob_data.split("\n").last.strip
+      @last_committed_date = @blob_data.split("\n")[2].split('Date:').last.strip
+      @last_committed_author = @blob_data.split("\n")[1].split('Author:').last.strip
       self
     end
 
@@ -116,17 +120,17 @@ module Grit
     def inspect
       %Q{#<Grit::Blob "#{@id}">}
     end
-
+    
     def last_committed_message
-      @repo.git.run('','log',' -- '+self.name,{:max_count => 1},'').to_str.split("\n").last.strip
+        @last_committed_message
     end
 
     def last_committed_date
-      @repo.git.run('','log',' -- '+self.name,{:max_count => 1},'').to_str.split("\n")[2].split('Date:').last.strip
+        @last_committed_date
     end
 
     def last_committed_author
-      @repo.git.run('','log',' -- '+self.name,{:max_count => 1},'').to_str.split("\n")[1].split('Author:').last.strip
+        @last_committed_author
     end
 
     # Compares blobs by name

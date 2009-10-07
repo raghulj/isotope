@@ -14,8 +14,8 @@
     <td><%=h repository.repo_name %></td>
     <td><%=h repository.path %></td>
     <td><%=h repository.description %></td>
-    <td><%= link_to 'Show', repository %></td>
-    <td><%= link_to 'Edit', edit_repository_path(repository) %></td>
+    <td><%= link_to 'Show', project_repository_path(@project,repository) %></td>
+    <td><%= link_to 'Edit', edit_project_repository_path(@project,repository) %></td>
     <td><%= link_to 'Destroy', project_repository_path(@project,repository), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

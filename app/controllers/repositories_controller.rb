@@ -6,7 +6,7 @@ class RepositoriesController < ApplicationController
     # GET /repositories
   # GET /repositories.xml
   def index
-    @repositories = Repository.all
+    @repositories =  @project.repositories.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,14 +49,10 @@ class RepositoriesController < ApplicationController
     @repository.repo_name = @repository.name.downcase.gsub(" ","_")
     respond_to do |format|
       if @repository.save
-        @repository.add_changes_to_conf
-        
         flash[:notice] = 'Repository was successfully created.'
         format.html { redirect_to([@project,@repository]) }
-        format.xml  { render :xml => @repository, :status => :created, :location => @repository }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @repository.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -69,7 +65,7 @@ class RepositoriesController < ApplicationController
     respond_to do |format|
       if @repository.update_attributes(params[:repository])
         flash[:notice] = 'Repository was successfully updated.'
-        format.html { redirect_to(@repository) }
+        format.html { redirect_to project_repositories_path }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -82,11 +78,10 @@ class RepositoriesController < ApplicationController
   # DELETE /repositories/1.xml
   def destroy
     @repository = @project.repositories.find(params[:id])
-        @repository.add_changes_to_conf
     @repository.destroy
 
     respond_to do |format|
-      format.html { redirect_to(repositories_url) }
+      format.html { redirect_to project_repositories_path }
       format.xml  { head :ok }
     end
   end

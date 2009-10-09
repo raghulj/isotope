@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091003060542) do
+ActiveRecord::Schema.define(:version => 20091007171243) do
 
   create_table "comments", :force => true do |t|
     t.text     "context"
@@ -17,6 +17,17 @@ ActiveRecord::Schema.define(:version => 20091003060542) do
     t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "gtds", :force => true do |t|
+    t.string   "name"
+    t.date     "due_on"
+    t.text     "description"
+    t.string   "priority"
+    t.boolean  "done"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "keys", :force => true do |t|

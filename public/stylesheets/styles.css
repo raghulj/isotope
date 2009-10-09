@@ -4,7 +4,7 @@ p{margin:0 10px 10px}
 a{padding:5px; text-decoration:none; color:#000000;}
 div#header{background-color:#F9F9F9;}
 div#header h1{height:40px;line-height:30px;margin:0;padding-left:10px;}
-div#container{text-align:left;background:#DCDAD9;}
+div#container{text-align:left;background:#F9F9F9;}
 div#content p{line-height:1.4}
 div#navigation{background:#F7F7FF;}
 div#navigation ul{margin:15px 0; padding:0; list-style-type:none;}
@@ -61,6 +61,38 @@ div#navigation {
 }
 #navigation li{
   padding: 4px;
+}
+div#messagebox {
+  float:left;
+  width:45%;
+  margin: 20px 5px 20px 20px;
+  padding: 10px;
+}
+div#msgDisp {
+  margin:5px;
+  padding: 5px;
+  background: #F9F9F9;
+}
+div#ticketbox {
+  float:right;
+  width:45%;
+  margin:20px 10px 20px 5px;
+  padding: 10px;
+}
+div#ticketDisp {
+  margin: 5px;
+  padding: 5px;
+}
+
+div#todosbox {
+  float:right;
+  width:45%;
+  margin:20px 10px 20px 5px;
+  padding: 10px;
+}
+div#todoDisp {
+  margin: 5px;
+  padding: 5px;
 }
 div#extra{float:left;clear:left;width:100%}
 div#footer{clear:both;width:100%}

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  due_on: 2009-10-07
+  description: MyText
+  priority: MyString
+  done: false
+
+two:
+  name: MyString
+  due_on: 2009-10-07
+  description: MyText
+  priority: MyString
+  done: false

@@ -2,17 +2,41 @@
                 <%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "overview" , :project_id => @project.id} %>
             <div id="content">
                     <div class="wrap" style="padding-left:10px;" >
-  <b>Name:</b>
-  <%=h @project.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%=h @project.description %>
-</p>
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+<h1> <%=h @project.name %></h1>
+<hr>
+<div id="messagebox" >
+   
+ Recent Messages
+ <hr>
+    <% for message in @messages %>
+        <div id="msgDisp">
+    <strong> <%= message.title %></strong><br>
+    <%= message.body %>
+      </div>
+<% end %>
+</div>
+
+<div id="ticketbox">
+    Recent Tickets
+    <hr>
+    <% for ticket in @tickets %>
+        <div id="ticketDisp">
+            <strong ><%= ticket.short_summary %></strong><br>
+            <%= ticket.description%>
+        </div>
+    <% end %>
+</div
+
+<div id="todosbox">
+    Things to do
+    <hr>
+    <% for todo in @todos %>
+        <div id="todoDisp">
+            <strong> <%= todo.title %> </strong><br>
+            <%= todo.body %>
+        </div>
+    <% end %>
+</div>
 </div>
 </div>

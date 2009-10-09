@@ -1,0 +1,29 @@
+<div id="content">
+    <div class="wrap" style="padding-left:10px;" >
+        <h1>Listing gtds</h1>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Due on</th>
+                <th>Description</th>
+                <th>Priority</th>
+                <th>Done</th>
+            </tr>
+            <% @gtds.each do |gtd| %>
+                <tr>
+                    <td><%=h gtd.name %></td>
+                    <td><%=h gtd.due_on %></td>
+                    <td><%=h gtd.description %></td>
+                    <td><%=h gtd.priority %></td>
+                    <td><%=h gtd.done %></td>
+                    <td><%= link_to 'Show', gtd %></td>
+                    <td><%= link_to 'Edit', edit_gtd_path(gtd) %></td>
+                    <td><%= link_to 'Destroy', gtd, :confirm => 'Are you sure?', :method => :delete %></td>
+                </tr>
+            <% end %>
+        </table>
+        
+        <br />
+        <%= link_to 'New gtd', new_gtd_path %>
+    </div>
+</div>

@@ -10,7 +10,7 @@
 
 <% @repositories.each do |repository| %>
   <tr>
-    <td><%=h repository.name %></td>
+      <td><%= link_to repository.name, source_index_path(:repository_id => repository.id)  %></td>
     <td><%=h repository.repo_name %></td>
     <td><%=h repository.path %></td>
     <td><%=h repository.description %></td>

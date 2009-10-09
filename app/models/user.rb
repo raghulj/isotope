@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     has_many :keys
     has_many :roles, :through => :role_users
     has_many :role_users
+    has_many :gtds
     acts_as_authentic
   
   def has_role(role_name)

@@ -1,29 +1,28 @@
-
-            <div id="content">
-                    <div class="wrap" style="padding-left:10px;" >
-<h1> Active Projects </h1>
-<hr>
-<table >
+<div id="content">
+    <div class="wrap" style="padding-left:10px;" >
+        <h1> Active Projects </h1>
+        <hr>
+        <table >
             <% @projects.each do |project| %>
                 <tr id="spacer">
                     <td>
-                    <table id="project">
-                        <tbody>
-                            <tr id="highlight">
-                                <th id="title">
-                                    <%= link_to "#{project.name}", project %> 
-                                </th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <%= project.description %>
-                                    <%= link_to 'Edit', edit_project_path(project) %>
-                                    <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
+                        <table id="project">
+                            <tbody>
+                                <tr id="highlight">
+                                    <th id="title">
+                                        <%= link_to "#{project.name}", project %> 
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%= project.description %>
+                                        <%= link_to 'Edit', edit_project_path(project) %>
+                                        <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
                 </tr>
             <% end %>
         </table>

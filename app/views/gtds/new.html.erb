@@ -1,0 +1,42 @@
+
+<div id="content">
+    <div class="wrap" style="padding-left:10px;" >
+<h1>New gtd</h1>
+
+<% form_for(@gtd) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :due_on %><br />
+    <%= f.date_select :due_on %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :priority %><br />
+    <select name="gtd[priority]">
+        <option value="its ok" selected="selected">Just have to do</option>
+        <option value="normal">Normal</option>
+        <option value="important">Important</option>
+        <option value="high">Compulsory</option>
+    </select>
+
+  </p>
+  <p>
+    <%= f.label :done %><br />
+    <%= f.check_box :done %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', gtds_path %>
+</div>
+</div>

@@ -1,0 +1,33 @@
+
+<div id="content">
+    <div class="wrap" style="padding-left:10px;" >
+<p>
+  <b>Name:</b>
+  <%=h @gtd.name %>
+</p>
+
+<p>
+  <b>Due on:</b>
+  <%=h @gtd.due_on %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @gtd.description %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%=h @gtd.priority %>
+</p>
+
+<p>
+  <b>Done:</b>
+  <%=h @gtd.done %>
+</p>
+
+
+<%= link_to 'Edit', edit_gtd_path(@gtd) %> |
+<%= link_to 'Back', gtds_path %>
+</div>
+</div>

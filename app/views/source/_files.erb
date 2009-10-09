@@ -11,7 +11,7 @@
                 <% unless @ap_string %>
                    <%    @ap_string = "" %>
                <% end %>
-                <%= "<td>#{link_to r.name, :action =>:tree_items, :id=>  @ap_string +r.name.to_s}</td>" %>
+               <%= "<td>#{link_to r.name, :action =>:tree_items, :repository_id =>@repository_id,  :id=>  @ap_string +r.name.to_s}</td>" %>
             <% end %>
                 <%= "<td>#{r.last_committed_date }</td>" %>
                 <%= "<td>#{r.last_committed_author}</td>" %>

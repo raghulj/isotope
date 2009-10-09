@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :gtds
+
   map.resources :keys
 
   map.resources :repositories

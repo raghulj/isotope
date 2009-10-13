@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<link rel='stylesheet' type='text/css' href='../fullcalendar.css' />
+<script type='text/javascript' src='../jquery/jquery.js'></script>
+<script type='text/javascript' src='../jquery/ui.core.js'></script>
+<script type='text/javascript' src='../jquery/ui.draggable.js'></script>
+<script type='text/javascript' src='../jquery/ui.resizable.js'></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/jquery-ui.min.js"></script>
+<script type='text/javascript' src='../fullcalendar.min.js'></script>
+
+
+
+<script type='text/javascript'>
+
+	$(document).ready(function() {
+	
+
+
+
+
+		var d = new Date();
+		var y = d.getFullYear();
+		var m = d.getMonth();
+
+
+
+
+
+
+		
+		$('#calendar').fullCalendar({
+			editable: true,
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			dayClick: function(dayDate, view){
+
+
+
+					
+						dialog.dialog('open');
+						var g = dayDate;
+						$('#dialog1').attr($('#date').text(g.toString()));
+
+
+									
+			},
+			eventDrop:function(calEvent, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view){
+					alert(calEvent.id);
+					alert(dayDelta);
+
+			},
+eventResize: function(calEvent, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view){
+alert(calEvent.id);
+	alert(dayDelta);
+},
+			events: [
+				{
+					id: 1,
+					title: "Long Event",
+					start: new Date(y, m, 6, 14, 0),
+					end: new Date(y, m, 11),
+					allDay: false
+				},
+				{
+					id: 2,
+					title: "Repeating Event",
+					start: new Date(y, m, 2),
+					allDay: true
+				},
+				{
+					id: 2,
+					title: "Repeating Event",
+					start: new Date(y, m, 9),
+					allDay: true
+				},
+				{
+					id: 3,
+					title: "Meeting",
+					start: new Date(y, m, 20, 9, 0),
+					allDay: false
+				},
+				{
+					id: 4,
+					title: "Click for Facebook",
+					start: new Date(y, m, 27, 16),
+					end: new Date(y, m, 29),
+					url: "http://facebook.com/",
+					allDay: true
+				}
+			]
+		});
+		
+	});
+
+</script>
+<style type='text/css'>
+
+	body {
+		margin-top: 40px;
+		text-align: center;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		text-align: left;
+		}
+
+	#calendar {
+		width: 600px;
+		margin: 0 auto;
+		}
+
+		div#dialog1 {
+			background:#ccc;
+			border: 1px solid #000;		
+			padding: 6px;
+		}
+</style>
+
+<style>
+
+	
+
+
+</style>
+
+
+
+
+</head>
+<body>
+
+<div id='calendar' ></div>
+
+
+<div id="dialog1" >
+	<p id="validateTips">Event </p>
+	<p id="date"> Date : </p>
+	<form>
+
+		<label for="name">Event</label>
+		<input type="text" name="event" id="event"  /><br>
+
+		<input type="button" name="submit" value="submit" />
+	</form>
+</div>
+
+
+
+<script>
+var dialog = 	$("#dialog1").dialog({
+	autoOpen: false		
+		
+});
+
+/*
+	var dialog = 	$("#dialog").dialog({
+			bgiframe: true,
+			autoOpen: false,
+			height: 300,
+			modal: true,
+			buttons: {
+				'Create an account': function() {
+					var bValid = true;
+					allFields.removeClass('ui-state-error');
+
+					bValid = bValid && checkLength(name,"username",3,16);
+					bValid = bValid && checkLength(email,"email",6,80);
+					bValid = bValid && checkLength(password,"password",5,16);
+
+					bValid = bValid && checkRegexp(name,/^[a-z]([0-9a-z_])+$/i,"Username may consist of a-z, 0-9, underscores, begin with a letter.");
+					// From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
+					bValid = bValid && checkRegexp(email,/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i,"eg. ui@jquery.com");
+					bValid = bValid && checkRegexp(password,/^([0-9a-zA-Z])+$/,"Password field only allow : a-z 0-9");
+					
+					if (bValid) {
+						$('#users tbody').append('<tr>' +
+							'<td>' + name.val() + '</td>' + 
+							'<td>' + email.val() + '</td>' + 
+							'<td>' + password.val() + '</td>' +
+							'</tr>'); 
+						$(this).dialog('close');
+					}
+				},
+				Cancel: function() {
+					$(this).dialog('close');
+				}
+			},
+			close: function() {
+			//	allFields.val('').removeClass('ui-state-error');
+			}
+		});
+		
+*/
+
+</script>
+</body>
+</html>

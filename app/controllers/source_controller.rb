@@ -33,8 +33,11 @@ class SourceController < ApplicationController
     end
 
     def view_file
+        get_repos(params[:repository_id])
         @link = @@links
+        puts @link
         @data = @reposis.blob(params[:id])
+        puts @data
         @repository_id = @@repository_id
     end
     

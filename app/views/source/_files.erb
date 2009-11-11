@@ -1,11 +1,14 @@
 
+<% for i in @link %>
+    <%= i %>
+<% end %>
 <table >
     <% for r in @repos.contents %>
 
         <tr id=<%= r.id %>>
             <% if r.kind_of? Grit::Blob %>
                 <%= "<td><img src='/images/page_white_text.png'></td>" %>
-                <%= "<td><a href='/source/view_file/#{r.id}'>#{r.name}</a></td>" %>
+                <%= "<td><a href='/source/view_file/#{r.id}?repository_id=#{@repository_id}'>#{r.name}</a></td>" %>
             <% else %>
                 <%= "<td><img src='/images/folder.png'></td>" %>
                 <% unless @ap_string %>

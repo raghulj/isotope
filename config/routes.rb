@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :snippets, :collection => {:my_snippets => :get }
+
   map.resources :gtds
 
   map.resources :keys
@@ -18,7 +20,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :login, :controller => "user_session"
   map.resource :user_session
   map.resources :users
- 
+  map.resources :calendars
+
+
   map.resources :dashboard
   # The priority is based upon order of creation: first created -> highest priority.
 

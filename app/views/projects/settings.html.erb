@@ -1,8 +1,8 @@
-<%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "settings" , :project_id => @project.id} %>
 
 <div id="content">
 
-    <div class="wrap" style="padding-left:10px;" >
+    <%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "settings" , :project_id => @project.id} %><br><br>
+<div class="wrap" style="padding-left:10px;" >
         Users in projects <br>
         <% for pipl in @people %>
             <%=h pipl.user.login %><a href="/projects/delete_user/<%= pipl.id %>">delete </a> <br>

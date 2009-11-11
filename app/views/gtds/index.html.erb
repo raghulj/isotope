@@ -1,27 +1,36 @@
 <div id="content">
     <div class="wrap" style="padding-left:10px;" >
         <h1>Listing gtds</h1>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Due on</th>
-                <th>Description</th>
-                <th>Priority</th>
-                <th>Done</th>
-            </tr>
-            <% @gtds.each do |gtd| %>
-                <tr>
-                    <td><%=h gtd.name %></td>
-                    <td><%=h gtd.due_on %></td>
-                    <td><%=h gtd.description %></td>
-                    <td><%=h gtd.priority %></td>
-                    <td><%=h gtd.done %></td>
-                    <td><%= link_to 'Show', gtd %></td>
-                    <td><%= link_to 'Edit', edit_gtd_path(gtd) %></td>
-                    <td><%= link_to 'Destroy', gtd, :confirm => 'Are you sure?', :method => :delete %></td>
-                </tr>
+
+        
+        <% @gtds.each do |gtd| %>
+            <% cls ="" %>
+            <% puts gtd.priority %> 
+
+                <% case gtd.priority 
+                 when "normal" %>
+                    <% cls = "id='Normal'" %>
+                <% when "its ok" %>
+                    <% cls = "id='Itsok'" %>
+                <% when "important"  %>
+                    <% cls = "id='important'" %>
+                <% when "high"  %>
+                    <% cls = "id='high'" %>
+                <% else %>
+                    <% cls ="id='Normal'" %>
+                <% end %>
+                <div <%= cls %> > 
+
+                    <div id="date"><%=h gtd.due_on %></div>
+                    <%=h gtd.name %>
+                    <%=h gtd.description %>
+                    <%=h gtd.priority %>
+                    <%=h gtd.done %>
+                    <%= link_to 'Show', gtd %>
+                    <%= link_to 'Edit', edit_gtd_path(gtd) %>
+                    <%= link_to 'Destroy', gtd, :confirm => 'Are you sure?', :method => :delete %>
+                </div>
             <% end %>
-        </table>
         
         <br />
         <%= link_to 'New gtd', new_gtd_path %>

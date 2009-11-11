@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091007171243) do
+ActiveRecord::Schema.define(:version => 20091109135102) do
 
   create_table "comments", :force => true do |t|
     t.text     "context"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(:version => 20091007171243) do
 
   create_table "roles", :force => true do |t|
     t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "snippets", :force => true do |t|
+    t.text     "snippet"
+    t.boolean  "view"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

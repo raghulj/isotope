@@ -1,0 +1,21 @@
+<div id="content" >
+
+    <%= render :partial => "links" %>
+    <h3>Listing snippets</h3>
+
+<% @snippets.each do |snippet| %>
+    <div id="snippet_view">
+      <%= snippet.id %>
+      <%=h snippet.snippet %>
+      <%=h snippet.view %>
+      <%= link_to 'Show', snippet %>
+      <%= link_to 'Edit', edit_snippet_path(snippet) %>
+      <%= link_to 'Destroy', snippet, :confirm => 'Are you sure?', :method => :delete %>
+    </div>  
+<% end %>
+
+<br />
+
+<%= link_to 'New snippet', new_snippet_path %>
+
+</div>

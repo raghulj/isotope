@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/fullcalendar.css' />
+    <script type='text/javascript' src='/javascripts/jquery.js'></script>
+    <script type='text/javascript' src='/javascripts/ui.core.js'></script>
+    <script type='text/javascript' src='/javascripts/ui.draggable.js'></script>
+    <script type='text/javascript' src='/javascripts/ui.resizable.js'></script>
+    <script type='text/javascript' src='/javascripts/fullcalendar.min.js'></script>
+   <%= render :partial => "/layouts/html_head.erb" %>
+    <body>
+        <div id="container">
+            <%= render :partial => "/layouts/header" %>
+            <%= yield  %>
+            
+                <%= render :partial => "layouts/sidebar_right" %>
+            </div>
+            <%= render :partial => "/layouts/spacer" %> 
+        </div>
+    </body>
+</html>
+

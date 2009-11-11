@@ -1,0 +1,15 @@
+<div id="content">
+    <p>
+  <b>Snippet:</b>
+  <%=h @snippet.snippet %>
+</p>
+
+<p>
+  <b>View:</b>
+  <%=h @snippet.view %>
+</p>
+
+
+<%= link_to 'Edit', edit_snippet_path(@snippet) %> |
+<%= link_to 'Back', snippets_path %>
+</div>

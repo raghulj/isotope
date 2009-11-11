@@ -1,0 +1,15 @@
+Script started on Saturday 07 November 2009 10:03:14 PM IST
+]0;raghul@alabaster: ~/Work/codepalraghul@alabaster:~/Work/codepal$ lsscript/server cd Work/codepal/[2Pscript/server ls[K[Klsscript/server cd Work/codepal/[2Pscript/server ls[K[Kscript/gn[Kenerate controller calendars
+      exists  app/controllers/
+      exists  app/helpers/
+      create  app/views/calendars
+      exists  test/functional/
+      exists  test/unit/helpers/
+      create  app/controllers/calendars_controller.rb
+      create  test/functional/calendars_controller_test.rb
+      create  app/helpers/calendars_helper.rb
+      create  test/unit/helpers/calendars_helper_test.rb
+]0;raghul@alabaster: ~/Work/codepalraghul@alabaster:~/Work/codepal$ exit
+exit
+
+Script done on Saturday 07 November 2009 10:49:00 PM IST

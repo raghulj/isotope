@@ -1,0 +1,18 @@
+<div id="content">
+
+    <%= render :partial => "links" %>
+  <% unless @snippets.blank? %>
+    <% for snippet in @snippets  %>
+        <div id="snippet_view">
+          <%= snippet.snippet %>  
+          <%= link_to 'Edit', edit_snippet_path(snippet) %>
+          <%= link_to 'Destroy', snippet, :confirm => 'Are you sure?', :method => :delete %>
+         </div> 
+     <% end %>
+ <% else %>
+     <div id="snippet_view">
+         No data to display
+     </div>
+ <% end %>
+ </div>
+

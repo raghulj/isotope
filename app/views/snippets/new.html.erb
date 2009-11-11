@@ -1,0 +1,26 @@
+<div id="content">
+    <script>
+        function toggle_private(){
+          alert("private");
+        }
+    </script>
+    <%= render :partial => "links" %>
+<% form_for(@snippet) do |f| %>
+  <%= f.error_messages %>
+  <div id="snippet_area" >
+      <div id="private" >  
+          <label> Private </label>
+          <input type="checkbox" name="snippet[view]" />
+      </div>
+      <div id="textb">
+          <%= f.text_area :snippet, :class => "pastebox" %>
+      </div>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+    </p>
+</div>
+<% end %>
+
+<%= link_to 'Back', snippets_path %>
+</div>

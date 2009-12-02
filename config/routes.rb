@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :chirps
+
   map.resources :snippets, :collection => {:my_snippets => :get }
 
   map.resources :gtds

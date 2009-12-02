@@ -1,6 +1,6 @@
 class AddUniqidSnippets < ActiveRecord::Migration
   def self.up
-    add_column :snippets, :uniq_id, :uniq => true
+    add_column :snippets, :uniq_id, :string
   end
 
   def self.down

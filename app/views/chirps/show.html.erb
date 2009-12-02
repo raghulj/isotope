@@ -1,0 +1,18 @@
+<p>
+  <b>Message:</b>
+  <%=h @chirp.message %>
+</p>
+
+<p>
+  <b>Aloud:</b>
+  <%=h @chirp.aloud %>
+</p>
+
+<p>
+  <b>Sms:</b>
+  <%=h @chirp.sms %>
+</p>
+
+
+<%= link_to 'Edit', edit_chirp_path(@chirp) %> |
+<%= link_to 'Back', chirps_path %>

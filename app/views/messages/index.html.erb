@@ -1,56 +1,25 @@
 
-<script>
-   function new_message(){
-    var e = document.getElementById('new_message');
-    e.style.display ="block";
-}
-
-function cancel_new_message(){
-  var e = document.getElementById('new_message');
-  e.style.display ="none";
-}
-
-</script>
-<a href="javascript:new_message()"> New Message </a>
-<div id="new_message" style="display:none">
-    <h2> New Message </h2>
-    <form id="new_message_form" action="/projects/<%=@project.id %>/messages" method="post">
-    Title <br>
-    <input class="title" id="message_title" type="text" name:"message[title]"></input>
-    <br>
-    Category <select id="category" name="message[category]">
-                <option value="1"> Project</option>
-                <option value="2"> Projecti</option>
-                <option value="3"> Project2</option>
-            </select><br>
-    Body <br>
-    <textarea class="body" id="message_body" rows="10" cols="30" name="message[body]"></textarea>
-    <br>
-    <div id="action">
-        <input type="button" value="Submit"> or
-    <a href="javascript:cancel_new_message()" style="align:right">Cancel</a>
-    </div>
-    </form>
-</div>
-
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-  </tr>
-
+<%= link_to 'New message', new_project_message_path %>
+<br>
 <% @messages.each do |message| %>
-  <tr>
-    <td><%=h message.title %></td>
-    <td><%=h message.body %></td>
-    <td><%= link_to 'Show', project_message_path(@project,message) %></td>
-    <td><%= link_to 'Edit', edit_project_message_path(@project,message) %></td>
-    <td><%= link_to 'Destroy', project_message_path(@project,message), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div id="message_disp" onclick= <%= project_message_path(@project,message) %> >
+    <div style="background:#237F06;float:left;padding:3px;margin-right:5px;color:#fff;font-weight:bold">
+      <img src="/images/date.png" style="border:0;">
+      <%= message.created_at.strftime("%d/%m/%Y") %>
+    </div>
+    <div>
+    <div style="font-weight:bold">
+      <%=h message.title %>
+    </div>
+    <%=h truncate(message.body,90) %>
+    <div style="float:right">
+      <%= link_to 'Show', project_message_path(@project,message) %>
+      <%= link_to '<img src="/images/page_white_edit.png" style="border:0">', edit_project_message_path(@project,message) %>
+      <%= link_to '<img src="/images/delete.png" style="border:0">', project_message_path(@project,message), :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+  </div>
+  </div>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New message', new_project_message_path %>

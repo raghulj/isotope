@@ -1,8 +1,11 @@
-body{font: 76% arial,sans-serif;text-align:center;}
+body{font: 76% arial,sans-serif;text-align:center;
+background:#F9F9F9;
+}
 p{margin:0 10px 10px}
 #div#header {
     background-color:#A2A2A2;
 }
+
 div#header h1{height:40px;line-height:30px;margin:0;padding-left:10px;}
 div#container{text-align:left;}
 div#content p{line-height:1.4}
@@ -37,7 +40,7 @@ div#content {
     //border-left: 1px solid #a7a7a7;
     //border-bottom: 1px solid #a7a7a7;
     //border-top: 1px solid #a7a7a7;
-    background: #fff;
+    background: #F9F9F9;
     margin-bottom: 20px;
     margin-right: 10px;
     min-height:100%;
@@ -328,4 +331,39 @@ div#date {
   float:left;
 }
 
+/**************** chirps ***************************/
+textarea.chirpbox {
+  width: 95%;
+  border: 1px solid #666464;
+  font-family:Courier New;
+  font-size: 14px;
+  padding:4px;
+
+} 
+div#chirp_content {
+  width:60%;
+
+}
+div#chirp_message_box {
+  width:100%;
+  border: 1px solid #ccc;
+  border-right :2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  padding:  5px;
+}
+/************************ Projects Rleated... ***********************************/
+/********** Messages ******************/
+
+div#message_disp {
+  border: 1px solid #C9C2C2;
+  margin: 10px;
+  border-left: 10px solid #C9C2C2;
+  padding: 6px;
+  padding-bottom:12px;
+  background: #fff;
+}
+
+div#message_disp:hover {
+  background: #FFFFE2;
+}
 

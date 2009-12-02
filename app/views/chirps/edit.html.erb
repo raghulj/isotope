@@ -1,0 +1,24 @@
+<h1>Editing chirp</h1>
+
+<% form_for(@chirp) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
+  </p>
+  <p>
+    <%= f.label :aloud %><br />
+    <%= f.check_box :aloud %>
+  </p>
+  <p>
+    <%= f.label :sms %><br />
+    <%= f.check_box :sms %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @chirp %> |
+<%= link_to 'Back', chirps_path %>

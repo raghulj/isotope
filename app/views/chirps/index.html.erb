@@ -1,0 +1,40 @@
+<div id="content" style="background:#F9F9F9;">
+  <div id="chirp_content">
+    <div id="chirp_message_box">
+<% form_for(@chirp) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :message %><br />
+    <%= f.text_area :message, :class => "chirpbox", :rows => 2%>
+    </p>
+    <div align="right">
+    <%= f.label :aloud %>
+    <%= f.check_box :aloud %>
+    <%= f.label :sms %>
+    <%= f.check_box :sms %>
+    <%= f.submit 'chirp' %>
+  </div>
+<% end %>
+</div>
+
+
+<% @chirps.each do |chirp| %>
+  <div style="border:1px solid #ccc; border-right:2px solid #ccc; border-bottom:2px solid #ccc;margin:10px;padding:10px;background:#fff;">
+    <%= chirp.user.login %>
+    <%= chirp.message %>
+    <div align=right>
+    <% if chirp.aloud %>
+      <img src="/images/email.png">
+    <% end %>
+    <% if chirp.sms %>
+      <img src="/images/phone.png">
+    <% end %>
+    <%= link_to "<img src='/images/delete.png' style='border:0px;'>", chirp, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+</div>
+<% end %>
+
+<br />
+</div>
+</div>

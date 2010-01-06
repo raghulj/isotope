@@ -20,6 +20,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @project.tickets.new(params[:ticket])
+    @ticket.assigne = current_user.id
     respond_to do |format|
       if @ticket.save
         flash[:notice] = 'Ticket was successfully created.'

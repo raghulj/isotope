@@ -7,8 +7,11 @@
 
             <div id="wrapper">
                 <div id="content">
-                <%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "overview" , :project_id => @project.id} %><br>
                     <div class="wrap" style="padding-left:10px;" >
+                      <div id="projects">                      
+                        <p> <%= @project.name %> </p>
+                        <%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "overview" , :project_id => @project.id} %>
+                      </div>
                         <%= yield  %>
                     </div>
                 </div>

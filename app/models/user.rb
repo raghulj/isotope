@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
     has_many :memberships
     has_many :projects, :through => :memberships
     has_many :keys
+    has_many :snippets
     has_many :roles, :through => :role_users
     has_many :role_users
     has_many :gtds

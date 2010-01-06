@@ -10,7 +10,7 @@
   <div id="snippet_area" >
       <div id="private" >  
           <label> Private </label>
-          <input type="checkbox" name="snippet[view]" />
+          <%= f.check_box "view" %>
       </div>
       <div id="textb">
           <%= f.text_area :snippet, :class => "pastebox" %>

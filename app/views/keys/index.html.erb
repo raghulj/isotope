@@ -1,11 +1,7 @@
+<div id="content">
 <h1>Listing keys</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Value</th>
-    <th>Git name</th>
-  </tr>
+
 
 <% @keys.each do |key| %>
   <tr>
@@ -22,3 +18,4 @@
 <br />
 
 <%= link_to 'New key', new_key_path %>
+</div>

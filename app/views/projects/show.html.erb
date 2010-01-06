@@ -1,41 +1,43 @@
 
-            <div id="content">
-                <%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "overview" , :project_id => @project.id} %><br>
-                    <div class="wrap" style="padding-left:10px;" >
-<h1> <%=h @project.name %></h1>
-<hr>
+<div id="content">
+  <div class="wrap" style="padding-left:10px;" >
+    <div id="projects">                      
+      <p> <%= @project.name %> </p>
+      <%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "overview" , :project_id => @project.id} %>
+    </div>
+    <br> 
 <div id="messagebox" >
    
- Recent Messages
- <hr>
+  <% unless @messages.blank? %>
+    <div id="overview_headings">
+          Recent Messages
+    </div>
+    <% else %>
+      <div id="noprojects">No Messages. </div>
+  <% end %>
     <% for message in @messages %>
         <div id="msgDisp">
     <strong> <%= message.title %></strong><br>
-    <%= message.body %>
+    <%= truncate(message.body,60) %>
       </div>
 <% end %>
 </div>
 
 <div id="ticketbox">
-    Recent Tickets
-    <hr>
+  <% unless @tickets.blank? %>
+    <div id="overview_headings">
+        Recent Tickets
+      </div>
+    <% else %>
+      <div id="noprojects">No tickets. </div>
+  <% end %>
     <% for ticket in @tickets %>
         <div id="ticketDisp">
             <strong ><%= ticket.short_summary %></strong><br>
-            <%= ticket.description%>
+            <%= truncate(ticket.description,60)%>
         </div>
     <% end %>
 </div
 
-<div id="todosbox">
-    Things to do
-    <hr>
-    <% for todo in @todos %>
-        <div id="todoDisp">
-            <strong> <%= todo.title %> </strong><br>
-            <%= todo.body %>
-        </div>
-    <% end %>
-</div>
 </div>
 </div>

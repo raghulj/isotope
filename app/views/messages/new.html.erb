@@ -1,18 +1,20 @@
+<div id="formbox">
 <h1>New message</h1>
+
 
 <% form_for([@project,@message] ) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :size => 53, :class => "title"  %>
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body,  :cols => "80", :rows => 8, :class => "body" %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+  <%= f.submit 'Create' %> or <%= link_to "Cancel", "/projects/#{@project.id}/messages" %>
   </p>
 <% end %>
-
+</div>

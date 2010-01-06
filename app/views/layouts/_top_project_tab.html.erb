@@ -1,41 +1,27 @@
-
-<ul id="tabs" >
-    <% dashboard_class = message_class = repository_class = todos = tickets_class = "" %>
-    <% if selected == "overview" %>
-        <% dashboard_class = "class='selected'" %>
-    <% elsif selected == "message" %>
-        <% message_class = "class='selected'"%>
-    <% elsif selected == "repository" %>
-        <% repository_class = "class='selected'" %>
-    <% elsif selected == "tickets" %>
-        <% tickets_class = "class='selected'" %>
-    <% elsif selected == "settings" %>
-        <% settings = "class='selected'" %>
-    <% else %>
-        <% todos = "class='selected'" %>
-    <% end %>
+<div id="tab_menu">
     
-    <li id="overview" >
-    <a href="/projects/<%= project_id %>" <%=dashboard_class%> >Overview </a>
-    </li>
+    <div id="overview" class="menu_tab" >
+      <img src="/images/icons/isotope.png" align="absMiddle"><a href="/projects/<%= project_id %>"  >Overview </a>
+    </div>
 
-    <li id="messages">
-    <a href="/projects/<%= project_id %>/messages" <%= message_class %> >Messages </a>
-    </li>
+    <div id="messages" class="menu_tab">
+     <img src="/images/icons/comments.png" align="absMiddle"><a href="/projects/<%= project_id %>/messages" >Messages </a>
+    </div>
 
-    <li id="repositories">
-    <a href="/projects/<%= project_id %>/repositories" <%= repository_class %>> Repositories </a>
-    </li>
+    <div id="repositories" class="menu_tab">
+      <img src="/images/icons/folder_page.gif" align="absMiddle"><a href="/projects/<%= project_id %>/repositories"> Repositories </a>
+    </div>
 
-    <li id="tickets">
-    <a href="/projects/<%= project_id%>/tickets" <%=tickets_class %>>Tickets </a>
-    </li>
+    <div id="tickets" class="menu_tab">
+      <img src="/images/icons/note.png" align="absMiddle"><a href="/projects/<%= project_id%>/tickets">Tickets </a>
+    </div>
 
-    <li id="todo">
-    <a href="/projects/<%= project_id %>/todos" <%=todos %>>Todos </a>
-    </li>
-    
-    <li id="settings">
-    <a href="/projects/settings/<%= project_id %>" <%=settings %>>Settings </a>
-    </li>
-</ul>
+    <!--
+    <div id="todo" class="menu_tab">
+    <a href="/projects/<%# = project_id %>/todos" >Todos </a>
+    </div>
+    -->
+    <div id="settings" class="menu_tab">
+    <img src="/images/icons/wrench_orange.png" align="absMiddle"> <a href="/projects/settings/<%= project_id %>">Settings </a>
+    </div>
+  </div>

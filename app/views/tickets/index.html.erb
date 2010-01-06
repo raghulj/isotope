@@ -1,17 +1,16 @@
-<h1>Listing tickets</h1>
-
+<br>
+<%= link_to 'New ticket', new_project_ticket_path %>
+<br>
+<br>
+<% unless @tickets.blank? %>
 <table class="tickets">
   <thead>
       <tr >
           <th> # </th>
-    <th>Short summary</th>
+    <th>Summary</th>
     <th>Description</th>
-    <th>Due date</th>
-    <th>Priority</th>
+    <th>Assigne </th>
     <th>Severity</th>
-    <th>Hours</th>
-    <th> </th>
-    <th></th>
   </tr>
   <thead>
       <% cnt=1 %>
@@ -21,17 +20,18 @@
         <td class="tickets" <%=clickable %> ><%= cnt %> </td>
         <td class="tickets" <%= clickable %>><%=h ticket.short_summary %></td>
         <td class="tickets" <%= clickable %>><%=h ticket.description %></td>
-        <td class="tickets" <%= clickable %>><%=h ticket.due_date %></td>
-        <td class="tickets" <%= clickable %>><%=h ticket.priority %></td>
+      <% unless ticket.user_id.blank? %>
+        <td class="tickets" <%= clickable %>><%=h User.find(ticket.assigne).login.capitalize %></td>
+      <% else %>
+        <td class="tickets" <%= clickable %>><none> </td>
+      <% end %>
         <td class="tickets" <%= clickable %>><%=h ticket.severity %></td>
-        <td class="tickets" <%= clickable %>><%=h ticket.hours %></td>
-    <td class="tickets"><%= link_to image_tag("page_white_edit.png", :border=>0), edit_project_ticket_path(@project,ticket) %></td>
-    <td class="tickets"><%= link_to image_tag("delete.png",:border=> 0), project_ticket_path(@project,ticket), :confirm => 'Are you sure?', :method => :delete %></td>
 </tr>
 <% cnt+=1 %>
 <% end %>
 </table>
-
+<% else %>
+  <div id="noprojects"> No Tickets </div>
+<% end %>
 <br />
 
-<%= link_to 'New ticket', new_project_ticket_path %>

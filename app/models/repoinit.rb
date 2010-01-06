@@ -3,10 +3,10 @@ module Repoinit
     # the gitosis.conf file is to be created to add new git repo
     # to the system. This is invoked for creating the file each time
     
-   SYSADMIN = "raghul@thesystem"
+   SYSADMIN = "raghul@alabaster"
       
   # cloned path of the gitosis-admin directory
-  GITOSIS_ADMIN_LOCAL_PATH = '/home/raghul/temp/gitosis-admin'
+  GITOSIS_ADMIN_LOCAL_PATH = RAILS_ROOT+'/gitosis-admin'
 
   # create a file with the name self.git_name into the keydir of the local repo gitosis-admin
   def add_key_to_git

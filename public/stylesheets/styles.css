@@ -1,17 +1,38 @@
 body{font: 76% arial,sans-serif;text-align:center;
-background:#F9F9F9;
+//background:#F9F9F9;
+}
+div#spacer {
+  clear:both;
 }
 p{margin:0 10px 10px}
-#div#header {
-    background-color:#A2A2A2;
+div#header {
+    border-bottom: 1px solid #0000CC;
 }
 
-div#header h1{height:40px;line-height:30px;margin:0;padding-left:10px;}
+a:link {
+  color: #0000D8; text-decoration: underline; 
+}
+a:active {
+  color: #0000D8; text-decoration: underline; 
+}
+a:visited {
+  color: #0000D8; text-decoration: underline; 
+}
+div#header p{height:30px;
+  line-height:30px;
+  text-shadow: #ccc  1px 1px 1px;
+  font-size:18px;
+  font-weight:bold;
+  margin:0;
+  padding-left:10px;}
 div#container{text-align:left;}
 div#content p{line-height:1.4}
 div#navigation ul{margin:15px 0; padding:0; list-style-type:none;}
 div#navigation li{margin-bottom:5px;}
 div#extra{background:#a7a7a7;}
+div#projects p{font-weight:bold;
+  text-shadow: #ccc  1px 1px 1px;
+  font-size:20px;margin:0; }
 
 div#footer{
     background:#94918f;
@@ -28,31 +49,31 @@ div#container{
     position:relative;
 }
 div#wrapper {
-  padding-right: 20px;
-  padding-bottom: 50px;
+ // padding-right: 20px;
+ // padding-bottom: 50px;
   height:auto;
 }
 div#content {
     float:right;
-    width:85%;
+    width:88%;
     padding-bottom: 2%;
     //border-right:1px solid #a7a7a7; 
     //border-left: 1px solid #a7a7a7;
     //border-bottom: 1px solid #a7a7a7;
     //border-top: 1px solid #a7a7a7;
-    background: #F9F9F9;
+   // background: #F9F9F9;
     margin-bottom: 20px;
-    margin-right: 10px;
+    margin-top:0px;
+    //margin-right: 10px;
     min-height:100%;
-    position:relative;
+    //position:relative;
 }
 
 div#navigation {
     float:left;
-    width:12%;
+    width:10%;
     height:100%;
-    margin: 2px 0px 0px 5px;
-    border-right: 1px solid #a7a7a7;
+    margin: 0px 0px 0px 5px;
     text-align: left;
     padding: 0px;
 }
@@ -102,24 +123,32 @@ div#spacer{
     clear:both;
     height:5px;
 }
+div#projects {
+    height: 4em;
+    border-bottom:1px solid #E5ECF9;
+}
 
 /************************************* Tabs in pages ****************************/
-#tabs {
-    padding: 0 5px 0 0;
+div#tab_menu {
+  height: 26px;
+  border-bottom:1px solid #E5ECF9;
+  border-top:1px solid #0000CC;
+  background: #E5ECF9;
 }
-#tabs ul{
-    background: transparent none repeat;
-    float: left;
-    margin: 2px 0px 0px;
-    list-style: none;
+.menu_tab {
+  padding:5px;
+  float:left;
+  margin:0 5px 0 0 ;
+}
+ul#tabs1 {
     list-style-type: none;
-
+    padding: 15px;
+    width: auto;
 }
-#tabs li {
+ul#tabs1 li {
+    background: #E5ECF9; 
+    padding: 0 5px 0 0;
     float: left;
-    display: block;
-    margin: 0px 3px 0px 0px ;
-    padding:5px;
 }
 /* #tabs A {
     color:#000;
@@ -148,9 +177,11 @@ div#spacer{
 } */
 /************************************ dialog display ****************************/
 table#project {
-    background: #C2C8E3;
-    border: 1px solid #a7a7a7;
-    margin: 5px 0px 8px 50px;
+    background: #E5ECF9;
+    border: 1px solid #B6CDFB;
+    height:50px;
+    width: 350px;
+    margin: 5px ;
     padding: 1em;
 }
 table#project thead{
@@ -169,28 +200,29 @@ tr#highlight {
 }
 
 tr#spacer {
-    padding: 20px;
+    padding: 15px;
 }
 table.tickets {
+  background:#fff;
   border-collapse: collapse;
 }
 
 table.tickets thead th {
-  background: transparent url(../images/thead.gif) repeat-x scroll left bottom;
   font-color: #4D4648;
+  background: #E5ECF9;
   text-align: center;
   padding: 0.7em;
   font-color: #4D4648;
-  border-right: 1px solid #DCDCDC ;
+  border-right: 1px solid #B6CDFB ;
 }
 table.tickets th {padding-top: 0.6em; padding-bottom: 0.54em;font-weight:bold; }
 table.tickets {
-  border: 1px solid #DCDCDC !important;
+  border: 1px solid #B6CDFB !important;
 }
 table.tickets td {
-  border: 1px solid #DCDCDC !important;
+  border: 1px solid #B6CDFB !important;
   height: 2.5em;
-  padding: 0.6em;
+  padding: 2px;
 }
 table.tickets tr{
   border:1px solid #DCDCDC;
@@ -202,20 +234,33 @@ table.tickets tr.hover td {
 }
 /*************** Text box and inputs *************/
 input.title {
-  border: 1px solid #AAAAAA;
+  border: 1px solid #819ED3;
   font-size: 19px;
   font-weight: bold;
   padding: 2px;
   width: 600px;
   margin: 2px 2px 4px 2px;
 }
+input.text {
+  border: 1px solid #819ED3;
+  font-size: 13px;
+  padding: 2px;
+  margin: 2px 2px 4px 2px;
+}
 
 textarea.body {
   margin: 2px 2px 4px 2px;
-  border: 1px solid #AAAAAA;
-  font-size: 14px;
+  border: 1px solid #819ED3;
+  font-size: 15px;
   padding: 3px;
   width:600px;
+}
+div#formbox {
+  background:#E5ECF9;
+  padding:10px;
+  padding-right:0px;
+  margin-top:19px;
+  margin-right: 0px;
 }
 /*****************  div dialog ***************/
 div#new_todo {
@@ -275,8 +320,19 @@ textarea.pastebox {
   height:60%;
   border: 2px solid #ccc;
   font-family:Courier New;
+  padding:3px;
   font-size: 14px;
 }
+div#snippet_user {
+  float:left;
+  padding:2px;
+}
+
+div#snippet_time {
+  float:right;
+  padding:2px;
+}
+
 div#snippet_area {
   margin:10px;
   padding:5px;
@@ -294,7 +350,7 @@ div#snippet_links a {
 }
 div#snippet_view {
   background:#EEEEEE;
-  padding:7px 15px;
+  padding:5px 15px;
   margin-bottom:  1em;
 }
 /***************** GTDs ***************************/
@@ -355,15 +411,57 @@ div#chirp_message_box {
 /********** Messages ******************/
 
 div#message_disp {
-  border: 1px solid #C9C2C2;
+  border: 1px solid #B6CDFB;
   margin: 10px;
-  border-left: 10px solid #C9C2C2;
+  border-left: 10px solid #B6CDFB;
   padding: 6px;
   padding-bottom:12px;
   background: #fff;
 }
 
 div#message_disp:hover {
-  background: #FFFFE2;
+  background: #F9F9F9;
+  cursor:pointer;
 }
+/******************* Overview *********************/
 
+div#overview_headings {
+  border-bottom: 1px solid #B6CDFB;
+  font-size: 16px;
+  font-weight: bold;
+}
+/************** Repository **************/
+
+div#repository {
+  margin-top: 15px;
+  height:60px;
+  border: 1px solid #B6CDFB;
+  padding: 5px;
+}
+div#repository_heading {
+  background: #E5ECF9;
+  font-size: 15px;
+  font-weight:bold;
+  padding:3px;
+}
+div#repository p {
+  font-size: 13px;
+  font-weight:bold;
+  padding: 3px;
+}
+div#noprojects {
+  background: #E5ECF9;
+  font-size: 12px;
+  margin: 20px;
+  padding:10px;
+  text-align:center;
+  width:400px;
+  font-style: italic;
+
+}
+input.title {
+  font-size: 15;
+}
+textarea.textbox {
+  font-size: 17;
+}

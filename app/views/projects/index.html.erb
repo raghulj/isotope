@@ -1,7 +1,8 @@
 <div id="content">
     <div class="wrap" style="padding-left:10px;" >
-        <h1> Active Projects </h1>
-        <hr>
+        <%= link_to 'New project', new_project_path %>
+      <% unless @projects.nil? %>
+        <p style="padding:4px;font-size:15px;font-weight:bold;"> Active Project(s) </p>
         <table >
             <% @projects.each do |project| %>
                 <tr id="spacer">
@@ -15,7 +16,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <%= project.description %>
+                                        <%= truncate(project.description,40) %>
                                         <%= link_to 'Edit', edit_project_path(project) %>
                                         <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %>
                                     </td>
@@ -25,8 +26,12 @@
                     </td>
                 </tr>
             <% end %>
-        </table>
+          </table>
+        <% else %>
+          <div id="noprojects">
+            There are no projects. Be the first to create a new project.
+          </div>
+        <% end %>
         <br />
-        <%= link_to 'New project', new_project_path %>
     </div>
 </div>

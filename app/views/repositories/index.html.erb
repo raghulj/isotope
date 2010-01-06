@@ -1,26 +1,24 @@
-<h1>Listing repositories</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Repo name</th>
-    <th>Path</th>
-    <th>Description</th>
-  </tr>
-
+<br>
+<%= link_to 'New repository', new_project_repository_path %>
+<% unless @repositories.blank? %>
 <% @repositories.each do |repository| %>
-  <tr>
-      <td><%= link_to repository.name, source_index_path(:repository_id => repository.id)  %></td>
-    <td><%=h repository.repo_name %></td>
-    <td><%=h repository.path %></td>
-    <td><%=h repository.description %></td>
-    <td><%= link_to 'Show', project_repository_path(@project,repository) %></td>
-    <td><%= link_to 'Edit', edit_project_repository_path(@project,repository) %></td>
-    <td><%= link_to 'Destroy', project_repository_path(@project,repository), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div id="repository">
+    <div id="repository_heading">
+      <img src="/images/icons/git.png" align="absMiddle"><%= link_to repository.name,source_index_path(:repository_id => repository.id) %>(<%= repository.repo_name %>) 
+    </div>
+    <%= truncate(repository.description,50) %> <br>
+     git@urhost:
+    <div style="float:right;">
+      <img src="/images/icons/calendar.png" align="absMiddle"><%= repository.created_at.strftime("%d/%m/%Y") %> |
+       <%= link_to 'Show', project_repository_path(@project,repository) %> |
+       <%= link_to 'Edit', edit_project_repository_path(@project,repository) %> |
+       <%= link_to 'Destroy', project_repository_path(@project,repository), :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+  </div>
 <% end %>
-</table>
+<% else %>
+  <div id="noprojects"> No Repository </div>
+<% end %>
 
 <br />
 
-<%= link_to 'New repository', new_project_repository_path %>

@@ -45,7 +45,7 @@ class RepositoriesController < ApplicationController
   # POST /repositories.xml
   def create
     @repository = @project.repositories.new(params[:repository])
-    @repository.path = '/home/raghul/tmp'
+    @repository.path = '/home/git/repositories'
     @repository.repo_name = @repository.name.downcase.gsub(" ","_")
     respond_to do |format|
       if @repository.save

@@ -11,7 +11,7 @@ class SnippetsController < ApplicationController
   end
 
   def my_snippets
-      @snippets = Snippet.find_by_user_id(current_user, :order => "created_at DESC")
+      @snippets = Snippet.find_all_by_user_id(current_user, :order => "created_at DESC")
   end
   # GET /snippets/1
   # GET /snippets/1.xml

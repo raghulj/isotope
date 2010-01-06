@@ -1,7 +1,9 @@
-
+<div id="header">
 <div style="float:right;">
-    <a href="/user_sessions/destroy"> Logout </a>
+  <img src="/images/icons/door_out.png" align="absMiddle" ><a href="/user_sessions/destroy"> Logout </a>
 </div>
-<div id="header"><h2><a href="/dashboard">/\</a><%= DateTime.now.strftime("  %A, %d %B %Y") %> </h2</div>
+<p><a href="/dashboard">/\</a><%= DateTime.now.strftime("  %A, %d %B %Y") %> </p>
 
+</div>
+<br><br>
 <%= render :partial => "/layouts/spacer" %>

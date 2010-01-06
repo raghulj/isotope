@@ -1,10 +1,14 @@
 <div id="navigation">
     <ul>
         <li id="navigation"><a href="/projects">Projects</a></li>
-        <li id="navigation"><a href="/gtds"> Get Things Done</a></li>
+        <li id="navigation"><a href="/keys">Settings</a></li>
+        <% if current_user.has_role? "admin" %>
+          <li id="navigation"><a href="/users">Manage Users</a></li>
+        <% end %>
+       <!-- <li id="navigation"><a href="/gtds"> Get Things Done</a></li>
         <li id="navigation"><a href="/calendars"> Calendar</a></li>
         <li id="navigation"><a href="/snippets"> Snippets</a></li>
-        <li id="navigation"><a href="/chirps"> Chirps</a></li>
+        <li id="navigation"><a href="/chirps"> Chirps</a></li> -->
     </ul>
 </div>
 

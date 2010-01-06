@@ -1,17 +1,22 @@
 <div id="content" >
 
     <%= render :partial => "links" %>
-    <h3>Listing snippets</h3>
-
-<% @snippets.each do |snippet| %>
-    <div id="snippet_view">
-      <%= snippet.id %>
-      <%=h snippet.snippet %>
-      <%=h snippet.view %>
-      <%= link_to 'Show', snippet %>
-      <%= link_to 'Edit', edit_snippet_path(snippet) %>
-      <%= link_to 'Destroy', snippet, :confirm => 'Are you sure?', :method => :delete %>
-    </div>  
+<% unless @snippets.blank? %>
+  <% @snippets.each do |snippet| %>
+    <% unless snippet.view %>
+        <div id="snippet_view">
+          <div id="snippet_user"><img src="/images/user.png">  <%= snippet.user.login %></div>
+          <div id="snippet_time"> <%= snippet.created_at.strftime("%d-%m-%y") %></div>
+          <div id="spacer"></div>
+          <%= snippet.id %>
+          <%=h snippet.snippet %>
+          <%=h snippet.view %>
+          <%= link_to 'Show', snippet %>
+        </div>  
+     <% end #end of snippet view %>
+  <% end #end of each block %> 
+<% else %>
+  <div style="background:#fff;padding:5px;margin:5px; border:1px solid #ccc"> No Snippets to display </div>
 <% end %>
 
 <br />

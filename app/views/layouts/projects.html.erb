@@ -4,7 +4,9 @@
     <body>
         <div id="container">
             <%= render :partial => "/layouts/header" %>
-            <%= yield  %>
+
+            <div id="wrapper">
+                        <%= yield  %>
             
                 <%= render :partial => "layouts/sidebar_right" %>
             </div>

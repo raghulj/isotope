@@ -1,0 +1,56 @@
+<br>
+<br>
+<%= link_to 'New milestone', new_project_milestone_path %>
+
+<% unless @milestones.blank? %>
+
+<% @milestones.each do |milestone| %>
+  <div id="milestone" >
+    <div id="milestone_icon">
+      <img src="/images/icons/milestone.png">
+    </div>
+    <div id="milestone_data">
+      <div id="milestone_title"><%=  milestone.title %></div>
+      <div id="milestone_desc">
+        Due date : <%=h milestone.due_date %><br> 
+        Assigned to: <%= milestone.assigned_to%> 
+      </div>
+      <div id="milestone_content">
+          
+          <% tot = milestone.tickets.size %>
+          <% if tot != 0 %>
+        <!------------------------- Milestone pixcture ---->
+        <div id="milestone_pic">
+        <div id="milestone_graph">
+            <% completed = milestone.tickets.select{ |m| m.status == "Fixed" }.size.to_f %>
+            <% per = completed/tot * 100 %>
+            <div style="position:absolute;text-align:center;"> <%= per.to_i %>% </div>
+            <% per.to_i.times do %>
+              <div style="background:#B6CDFB;width:3px;color:#B6CDFB;float:left;">.</div>
+            <% end %>
+          </div>
+          
+          <div style="float:left">1%</div>
+          <div style="float:right">100%</div>
+          <div id="spacer"></div>
+        </div>
+      <% else %>
+         No tickets associated with this milestone.
+        <% end %>
+
+      </div>
+      <!------- --------------------------------------->
+      </div>
+      <div id="milestone_links">
+        <%= link_to 'Edit', edit_milestone_path(milestone) %> |
+        <%= link_to 'Destroy', milestone, :confirm => 'Are you sure?', :method => :delete %>
+     </div>
+      <div id="spacer"> </div>
+</div>
+
+<% end %>
+<% else %>
+  <div id="noprojects"> No Milestones </div>
+<% end %>
+ <br />
+

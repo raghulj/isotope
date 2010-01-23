@@ -1,3 +1,5 @@
+
+<div id="formbox">
 <h1>Editing ticket</h1>
 
 <% form_for([@project,@ticket]) do |f| %>
@@ -5,32 +7,32 @@
 
   <p>
     <%= f.label :short_summary %><br />
-    <%= f.text_field :short_summary %>
+    <%= f.text_field :short_summary, :class => "title" %>
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :rows => 8, :cols => 80, :class => "body" %>
   </p>
   <p>
     <%= f.label :due_date %><br />
-    <%= f.date_select :due_date %>
-  </p>
+    <%= f.date_select :due_date %> &nbsp;&nbsp;
+    <%= f.label :priority %>
+    <%= f.select :priority, [["Highest","Highest"],["High","High"],["Normal","Normal"],["Low","Low"],["Lowest","Lowest"]],:selected => "Normal" %>
+    </p>
   <p>
-    <%= f.label :priority %><br />
-    <%= f.text_area :priority %>
+    <%# = f.label :severity %><br />
+    <%# = f.text_field :severity, :size => 10 %> &nbsp;&nbsp;
+    <%= f.label :hours %>
+    <%= f.text_field :hours, :size => 10, :class => "text" %> &nbsp;&nbsp;
+   Assigned to 
+  <%= f.select("user_id",@project.users.collect {|p| [p.login , p.id]}, { :include_blank => true}) %>
+
+  Milestone :
+  <%= f.select("milestone_id",@project.milestones.collect { |p| [p.title,p.id] },{:include_blank => true }) %>
   </p>
+  <br>
   <p>
-    <%= f.label :severity %><br />
-    <%= f.text_area :severity %>
-  </p>
-  <p>
-    <%= f.label :hours %><br />
-    <%= f.text_field :hours %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
+  <%= f.submit 'Update' %> or <%= link_to 'cancel', project_tickets_path %>
   </p>
 <% end %>
-
-<%= link_to 'Show', project_ticket_path(@project,@ticket) %> |
-<%= link_to 'Back', project_tickets_path %>
+</div>

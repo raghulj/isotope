@@ -25,7 +25,8 @@
     <%= f.text_field :hours, :size => 10, :class => "text" %> &nbsp;&nbsp;
    Assigned to 
   <%= f.select("user_id",@project.users.collect {|p| [p.login , p.id]}, { :include_blank => true}) %>
-
+  Milestone :
+  <%= f.select("milestone_id",@project.milestones.collect { |p| [p.title,p.id] },{:include_blank => true }) %>
   </p>
   <br>
   <p>

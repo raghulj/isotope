@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100101110823) do
+ActiveRecord::Schema.define(:version => 20100123111917) do
 
   create_table "chirps", :force => true do |t|
     t.text     "message"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(:version => 20100101110823) do
   create_table "messages", :force => true do |t|
     t.string   "title"
     t.text     "body"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "milestones", :force => true do |t|
+    t.date     "due_date"
+    t.string   "title"
+    t.integer  "assigned_to"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -115,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20100101110823) do
     t.integer  "user_id"
     t.integer  "assigne"
     t.string   "status"
+    t.integer  "milestone_id"
   end
 
   create_table "todos", :force => true do |t|

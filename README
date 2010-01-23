@@ -1,18 +1,26 @@
- This is a project management application. :) Huh.. Please dont ask me Why I am wasting time.
+Features in isotope
+* Project management
+* Repository management
+* Ticketing syetem
+* Messages
+* Milestones
+* Administration includes
+    - User adding to the system
+    - Giving access to the user to the specific project
+    - Any user can create a project and repository.
+    - Restriction should be made to users other than admin in the project
 
- I am trying to develop this application based on the user perspective rather than looking into it as a
- member of a project.
+TODOs
 
- Obiviously it is more or like Redmine,unfuddle or basecamp. Actually I am trying to make something which has all the features of the above.
+* Milestones  (+++)
+* Resolving and cancelling the tickets   (++++)
+* Proper settings in the project tab. UI changes and restriction functionality to be added to that (+++)
+* Repositories should made listing files and folders properly and with good UI (+++)
+* Some more added UI and milestones to be displayed in overview tab of every project
+* Listing projects to be made with good UI 
+* Restrictions to the projects to be added asap  (++++)
+* Storage limit to the specific user to be added.
+* Automatic installation should include rake task that creates admin user (++++)
 
- Lets see How long I am looking on this. Currently you can do the following
 
- * Create project with fully supported git integration
-      I use grit for accessing the git. I think a part of unfuddle is done
- 
- *  tickets ,Messages, keys for importing to git ( most part of unfuddle option)
-
- * GTD ( to know more about that pls look on wikipedia )
-
- Still lot more have to be done. :)
-
+++++ => Priority level in the development process.

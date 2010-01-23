@@ -1,0 +1,28 @@
+<h1>Editing milestone</h1>
+
+<% form_for(@milestone) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :due_date %><br />
+    <%= f.date_select :due_date %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :assigned_to %><br />
+    <%= f.text_field :assigned_to %>
+  </p>
+  <p>
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @milestone %> |
+<%= link_to 'Back', milestones_path %>

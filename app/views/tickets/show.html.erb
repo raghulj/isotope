@@ -1,33 +1,42 @@
-<p>
-  <b>Short summary:</b>
-  <%=h @ticket.short_summary %>
-</p>
+<br>
+<script>
+  function show_resolve(){
+    document.getElementById('show_ticket_resolve').style.display = 'block';
+  }
+  function hide_resolve(){
+    document.getElementById('show_ticket_resolve').style.display = 'none';
+  }
+</script>
+<div id="show_ticket">
 
-<p>
-  <b>Description:</b>
-  <%=h @ticket.description %>
-</p>
+  <div id="show_ticket_title"> <%=h @ticket.short_summary %> </div>
+    <div id="spacer"></div>
+    <div id="show_ticket_data">
+      <div id="show_ticket_left"> Priority: <%= @ticket.priority %> </div>
+      <div id="show_ticket_right"> Reporter: <%= @ticket.assigne %> </div>
+    </div>
+    <div id="spacer"></div>
+    <div id="show_ticket_data">
+      <div id="show_ticket_left">Assigned to: <%= @ticket.user_id %></div>
+      <div id="show_ticket_right">due date: <%= @ticket.due_date %> </div>
+    </div>
+    <div id="spacer"></div>
+    <div id="show_ticket_description"> 
+      <p style="font-weight:bold"> Description by <%= @ticket.assigne %></p>
+      <%= @ticket.description %>
+    </div>
+    <div id="show_ticket_links">
+      <a href="#" onclick="javascript:show_resolve()">Resolve ticket </a> |
+      <%= link_to 'Edit', edit_project_ticket_path(@project,@ticket) %> |
+      <%= link_to 'Back', project_tickets_path %>
+    </div>
+    <div id="show_ticket_resolve" style="display:none">
+      
+<% form_for([@project,@ticket]) do |f| %>
+   Resolution : <%= f.select :status, [["Fixed","Fixed"],["Works for me","Works for me"],["Invalid","Invalid"],["New","New"]],:include_blank => true %>
+   <br>
+   <%= f.submit 'Update' %> or <a href="#" onclick="javascript:hide_resolve()">Cancel</a>
+<% end %>
+    </div>
+</div>
 
-<p>
-  <b>Due date:</b>
-  <%=h @ticket.due_date %>
-</p>
-
-<p>
-  <b>Priority:</b>
-  <%=h @ticket.priority %>
-</p>
-
-<p>
-  <b>Severity:</b>
-  <%=h @ticket.severity %>
-</p>
-
-<p>
-  <b>Hours:</b>
-  <%=h @ticket.hours %>
-</p>
-
-
-<%= link_to 'Edit', edit_project_ticket_path(@project,@ticket) %> |
-<%= link_to 'Back', project_tickets_path %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Due date:</b>
+  <%=h @milestone.due_date %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @milestone.title %>
+</p>
+
+<p>
+  <b>Assigned to:</b>
+  <%=h @milestone.assigned_to %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @milestone.project_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_milestone_path(@milestone) %> |
+<%= link_to 'Back', milestones_path %>

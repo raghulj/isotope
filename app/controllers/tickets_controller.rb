@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_filter :get_project
 
   def index
-    @tickets = @project.tickets.all
+    @tickets = @project.tickets.find(:all,:order => 'created_at desc')
   end
 
   def show
@@ -21,6 +21,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = @project.tickets.new(params[:ticket])
     @ticket.assigne = current_user.id
+    @ticket.status = "New"
     respond_to do |format|
       if @ticket.save
         flash[:notice] = 'Ticket was successfully created.'

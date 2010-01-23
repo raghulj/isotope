@@ -304,9 +304,88 @@ th#tickets{
 td.tickets {
   border: 1px solid #C4C4C4;
   margin:0px;
+
 }
 tr#tickets a.hover{
   background-color: red;
+}
+/********************  Ticket ********************************/
+div#show_ticket {
+ // border: 1px solid #0000CC;
+  background: #E5ECF9;
+  padding: 15px;
+  margin-top: 15px;
+}
+div#show_ticket_title {
+  font-weight: bold;
+  font-size: 15px;
+  background:#C4D4F2;
+  padding: 5px;
+  margin-bottom:15px;
+}
+div#show_ticket_data {
+  width:80%;
+  border-top: 1px solid #C4D4F2;
+  height: 3%;
+}
+div#show_ticket_left {
+  float:left;
+  padding:3px;
+  text-align:left;
+
+}
+div#show_ticket_right {
+  float: right;
+  padding:3px;
+  text-align:left;
+}
+div#show_ticket_description {
+  border-top: 1px solid #C4D4F2;
+  padding: 5px;
+}
+div#show_ticket_links {
+  border-top: 1px solid #C4D4F2;
+  padding: 10px; 
+  text-align:right;
+}
+/*********************************** Milestone *********************************/
+div#milestone {
+  border: 1px solid #C4D4F2;
+  border-right: 3px solid #C4D4F2;
+  width:80%;
+  border-bottom: 3px solid #C4D4F2;
+  margin: 5px;
+  padding:10px;
+  height:70px;
+  margin-top: 10px;
+}
+div#milestone_desc {
+  float:right;
+}
+div#milestone_icon {
+  float:left;
+}
+div#milestone_data {
+  float:left;
+  width:85%;
+}
+div#milestone_title {
+  font-weight:bold;
+  //background: #C4D4F2;
+  font-size:15px;
+  padding:10px;
+}
+div#milestone_links {
+  float:right;
+}
+div#milestone_graph {
+  border: 2px solid #B6CDFB;
+  width: 300px;
+  height:15px;
+  padding:1px;
+  }
+div#milestone_pic {
+  width:300px;
 }
 /************************************ calendar *********************************/
 #calendar {

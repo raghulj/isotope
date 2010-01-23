@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :milestones
+
   map.resources :chirps
 
   map.resources :snippets, :collection => {:my_snippets => :get }
@@ -44,7 +46,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-      map.resources :projects, :has_many => [:tickets,  :todos, :repositories] ,:collection => {:settings => :get }
+      map.resources :projects, :has_many => [:tickets,  :todos, :repositories,:milestones] ,:collection => {:settings => :get }
       map.resources :projects do | project|
         project.resources :messages do | message|
           message.resource :comments

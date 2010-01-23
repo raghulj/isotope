@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
-  before_filter :has_rights_to_admin,  :only => [:new, :create]
+  before_filter :has_rights_to_admin,  :only => [:new, :create,:index]
   before_filter :require_user, :only => [:show, :edit, :update]
   
+  def index 
+    @users = User.find(:all)  
+  end
+
   def new
           @user = User.new
   end

@@ -10,14 +10,13 @@
     <th>Summary</th>
     <th>Description</th>
     <th>Assigne </th>
-    <th>Severity</th>
+    <th>Status</th>
   </tr>
   <thead>
-      <% cnt=1 %>
       <% @tickets.each do |ticket| %>
           <% clickable =" onclick='window.location.href=\"#{project_ticket_path(@project,ticket)}\"'" %>
     <tr>
-        <td class="tickets" <%=clickable %> ><%= cnt %> </td>
+        <td class="tickets" <%=clickable %> ><%= ticket.id %> </td>
         <td class="tickets" <%= clickable %>><%=h ticket.short_summary %></td>
         <td class="tickets" <%= clickable %>><%=h ticket.description %></td>
       <% unless ticket.user_id.blank? %>
@@ -25,9 +24,8 @@
       <% else %>
         <td class="tickets" <%= clickable %>><none> </td>
       <% end %>
-        <td class="tickets" <%= clickable %>><%=h ticket.severity %></td>
+        <td class="tickets" <%= clickable %>><%=h ticket.status %></td>
 </tr>
-<% cnt+=1 %>
 <% end %>
 </table>
 <% else %>

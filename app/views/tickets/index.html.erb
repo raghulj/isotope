@@ -3,31 +3,41 @@
 <br>
 <br>
 <% unless @tickets.blank? %>
-<table class="tickets">
-  <thead>
-      <tr >
+<% @tickets.each do |milestone,tickets|  %>
+
+  <% if milestone.blank? %>
+    <div style="font-weight:bold;margin:10px;font-size:14px;">Tickets not associated with milestone</div>
+  <% else %>
+     <div style="font-weight:bold;margin:10px;font-size:14px;"><%= milestone.title %></div>
+  <% end %>
+    <table class="tickets">
+      <thead>
+        <tr >
           <th> # </th>
-    <th>Summary</th>
-    <th>Description</th>
-    <th>Assigne </th>
-    <th>Status</th>
-  </tr>
-  <thead>
-      <% @tickets.each do |ticket| %>
-          <% clickable =" onclick='window.location.href=\"#{project_ticket_path(@project,ticket)}\"'" %>
-    <tr>
-        <td class="tickets" <%=clickable %> ><%= ticket.id %> </td>
-        <td class="tickets" <%= clickable %>><%=h ticket.short_summary %></td>
-        <td class="tickets" <%= clickable %>><%=h ticket.description %></td>
-      <% unless ticket.user_id.blank? %>
-        <td class="tickets" <%= clickable %>><%=h User.find(ticket.assigne).login.capitalize %></td>
-      <% else %>
-        <td class="tickets" <%= clickable %>><none> </td>
-      <% end %>
-        <td class="tickets" <%= clickable %>><%=h ticket.status %></td>
-</tr>
-<% end %>
-</table>
+          <th>Summary</th>
+          <th>Description</th>
+          <th>Assigne </th>
+          <th>Status</th>
+        </tr>
+      </thead>
+          <% for ticket in tickets do %>
+            <% clickable =" onclick='window.location.href=\"#{project_ticket_path(@project,ticket)}\"'" %>
+            <tr>
+              <td class="tickets" <%=clickable %> ><%= ticket.id %> </td>
+              <td class="tickets" <%= clickable %>><%=h ticket.short_summary %></td>
+              <td class="tickets" <%= clickable %>><%=h ticket.description %></td>
+              <% unless ticket.user_id.blank? %>
+                <td class="tickets" <%= clickable %>><%=h User.find(ticket.assigne).login.capitalize %></td>
+              <% else %>
+                <td class="tickets" <%= clickable %>><none> </td>
+              <% end %>
+              <td class="tickets" <%= clickable %>><%=h ticket.status %></td>
+            </tr>
+          <% end %>
+    
+      </table>
+      <br><br>
+        <% end %>
 <% else %>
   <div id="noprojects"> No Tickets </div>
 <% end %>

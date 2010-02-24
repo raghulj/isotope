@@ -3,7 +3,7 @@ class TicketsController < ApplicationController
   before_filter :get_project
 
   def index
-    @tickets = @project.tickets.find(:all,:order => 'created_at desc')
+    @tickets = @project.tickets.find(:all,:order => 'created_at desc').group_by { |m| m.milestone }
   end
 
   def show

@@ -42,7 +42,7 @@
       <!------- --------------------------------------->
       </div>
       <div id="milestone_links">
-        <%= link_to 'Edit', edit_milestone_path(milestone) %> |
+        <%= link_to 'Edit', edit_project_milestone_path(@project,milestone) %> |
         <%= link_to 'Destroy', milestone, :confirm => 'Are you sure?', :method => :delete %>
      </div>
       <div id="spacer"> </div>

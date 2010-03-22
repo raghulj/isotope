@@ -1,3 +1,7 @@
+<div id="content">
+  <%= link_to 'New user', new_user_path %>
 <% for user in @users do %>
   <%= user.login %>
+  <%= user.email %>
 <% end %>
+</div>

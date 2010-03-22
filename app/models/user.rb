@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
     has_many :gtds
     has_many :chirps
     acts_as_authentic
+
+    attr :role
   
   def has_role(role_name)
       @r = Role.find_or_create_by_role(role_name)

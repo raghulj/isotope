@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   
   def create
       @user = User.new(params[:user])
+      @user.has_role "viewer"
       if @user.save
           flash[:notice] = "Account registered!"
           redirect_back_or_default project_url 

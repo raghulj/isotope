@@ -8,3 +8,6 @@
 <%= form.password_field :password_confirmation %><br />
 <%= form.label :email %><br />
 <%= form.text_field :email %><br />
+<%= form.label :role %> <br/>
+<%= form.select 'role',options_for_select([["Viewer", "1"], ["User", "2"],["Developer","3"],["Administrator","4"]]) %><br>
+<br>

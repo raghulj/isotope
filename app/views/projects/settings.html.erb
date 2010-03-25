@@ -6,6 +6,7 @@
                         <p> <%= @project.name %> </p>
                         <%= render :partial=> '/layouts/top_project_tab', :locals => {:selected => "overview" , :project_id => @project.id} %>
                       </div>
+                      <br>
         Users in projects <br>
         <% for pipl in @people %>
             <%=h pipl.user.login %><a href="/projects/delete_user/<%= pipl.id %>">delete </a> <br>

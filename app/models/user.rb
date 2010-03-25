@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     has_many :projects, :through => :memberships
     has_many :keys
     has_many :snippets
-    has_many :roles, :through => :role_users
+    has_one :roles, :through => :role_users
     has_many :role_users
     has_many :gtds
     has_many :chirps
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   end
 
   def has_role? (role)
-    if self.roles.collect{|r| r.role}.uniq.include? role
+    if self.roles.role ==  role
         return true
     else
         return false

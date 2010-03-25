@@ -18,7 +18,7 @@
     <% for message in @messages %>
         <div id="msgDisp">
     <strong> <%= message.title %></strong><br>
-    <%= truncate(message.body,60) %>
+    <%= truncate(message.body, :length => 60) %>
       </div>
 <% end %>
 </div>
@@ -34,7 +34,7 @@
     <% for ticket in @tickets %>
         <div id="ticketDisp">
             <strong ><%= ticket.short_summary %></strong><br>
-            <%= truncate(ticket.description,60)%>
+            <%= truncate(ticket.description, :length => 60)%>
         </div>
     <% end %>
 </div

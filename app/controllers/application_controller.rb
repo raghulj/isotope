@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
       if current_user
           store_location
           flash[:notice] = "You must be logged out to access this page"
-          redirect_to "/dashboard"
+          redirect_to "/projects"
           return false
       end
   end
@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
   def has_rights_to_admin
      unless current_user.has_role? "admin"
          flash[:notice] = "You are not authorized to do this"
-         redirect_to "/dashboard"
+         redirect_to "/projects"
          return false
      end
 

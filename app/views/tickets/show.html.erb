@@ -13,22 +13,22 @@
     <div id="spacer"></div>
     <div id="show_ticket_data">
       <div id="show_ticket_left"> Priority: <%= @ticket.priority %> </div>
-      <div id="show_ticket_right"> Reporter: <%= @ticket.assigne %> </div>
+      <div id="show_ticket_right"> Reporter: <%= User.find(@ticket.user_id).login if @ticket.user_id %> </div>
     </div>
     <div id="spacer"></div>
     <div id="show_ticket_data">
       <div id="show_ticket_left">Assigned to: <%= @ticket.user_id %></div>
-      <div id="show_ticket_right">due date: <%= @ticket.due_date %> </div>
+      <div id="show_ticket_right">Due date: <%= @ticket.due_date %> </div>
     </div>
     <div id="spacer"></div>
     <div id="show_ticket_description"> 
-      <p style="font-weight:bold"> Description by <%= @ticket.assigne %></p>
+      <p style="font-weight:bold"> Description by <%= User.find(@ticket.assigne).login %></p>
       <%= @ticket.description %>
     </div>
     <div id="show_ticket_links">
       <a href="#" onclick="javascript:show_resolve()">Resolve ticket </a> |
       <%= link_to 'Edit', edit_project_ticket_path(@project,@ticket) %> |
-      <%= link_to 'Back', project_tickets_path %>
+      <%= link_to 'Back to tickets', project_tickets_path %>
     </div>
     <div id="show_ticket_resolve" style="display:none">
       

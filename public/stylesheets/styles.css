@@ -203,8 +203,26 @@ tr#spacer {
     padding: 15px;
 }
 table.tickets {
+  width:100%;
   background:#fff;
   border-collapse: collapse;
+}
+
+table th#number {
+  width:2%;
+}
+table th#summary {
+  width:20%;
+
+}
+table th#description {
+  width:60%;
+}
+table th#Assigne {
+  width:10%;
+}
+table th#status {
+  width: 8%;
 }
 
 table.tickets thead th {

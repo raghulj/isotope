@@ -17,7 +17,7 @@
   <% end %>
     <% for message in @messages %>
         <div id="msgDisp">
-    <strong> <%= message.title %></strong><br>
+    <strong> <%= link_to message.title,project_messages_path(message) %></strong><br>
     <%= truncate(message.body, :length => 60) %>
       </div>
 <% end %>
@@ -33,7 +33,7 @@
   <% end %>
     <% for ticket in @tickets %>
         <div id="ticketDisp">
-            <strong ><%= ticket.short_summary %></strong><br>
+          <strong ><%= link_to ticket.short_summary, "/projects/#{ticket.project.id}/tickets/#{ticket.id}" %></strong><br>
             <%= truncate(ticket.description, :length => 60)%>
         </div>
     <% end %>

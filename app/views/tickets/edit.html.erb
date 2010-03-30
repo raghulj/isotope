@@ -34,5 +34,8 @@
   <p>
   <%= f.submit 'Update' %> or <%= link_to 'cancel', project_tickets_path %>
   </p>
+  <p align="right">
+  <%= link_to "Delete","/projects/#{@project.id}/tickets/#{@ticket.id}", :confirm => 'Are you sure?', :method => :delete %> 
+  </p>
 <% end %>
 </div>

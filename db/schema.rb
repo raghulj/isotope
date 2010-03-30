@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(:version => 20100123111917) do
     t.integer  "user_id"
     t.integer  "assigne"
     t.string   "status"
-    t.integer  "milestone_id"
+    t.integer  "milestone_id",  :default => 0
   end
 
   create_table "todos", :force => true do |t|
